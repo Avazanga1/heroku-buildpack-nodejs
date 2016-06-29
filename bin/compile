@@ -90,7 +90,6 @@ install_bins() {
     warn_node_engine "$node_engine"
     install_nodejs "$node_engine" "$BUILD_DIR/.heroku/node"
     install_npm "$npm_engine" "$BUILD_DIR/.heroku/node"
-    node ./node_modules/webpack/bin/webpack.js -p —config webpack.production.config.js
   fi
   warn_old_npm
 }
@@ -156,6 +155,6 @@ summarize_build() {
   cd $BUILD_DIR
   (npm ls --depth=0 | tail -n +2 || true) 2>/dev/null
 }
-
+node ./node_modules/webpack/bin/webpack.js -p —config webpack.production.config.js
 header "Build succeeded!"
 summarize_build | output "$LOG_FILE"
