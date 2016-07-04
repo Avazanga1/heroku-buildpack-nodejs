@@ -155,6 +155,6 @@ summarize_build() {
   cd $BUILD_DIR
   (npm ls --depth=0 | tail -n +2 || true) 2>/dev/null
 }
-node ./node_modules/webpack/bin/webpack.js -p —config webpack.production.config.js
+node ./node_modules/webpack/bin/webpack.js -p —-config webpack.production.config.js
 header "Build succeeded!"
 summarize_build | output "$LOG_FILE"
